@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment Portal</title>
+    <link rel="stylesheet" href="./index.css">
+    <style>
+        .pay{
+            display: inline-block;
+            margin-left: 50px;
+            margin-top: 25px;
+        }
+        option, select{
+            border-radius: 50px;
+            background-color: dodgerblue;
+            color: black;
+            padding: 5px;
+
+        }
+        .asd{
+            margin-left: 10px;
+            font-size: 20px;
+            display: none;
+            input{
+                width: 50vw;
+                border-radius: 5px;
+                border: none;
+                padding: 5px;
+                font-size: 20px;
+                transition: 0.25s all linear;
+                margin-left: 10px;
+            }
+            input:hover{
+                border-radius: 20px;
+                background-color: rgb(29, 26, 26);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="pay">
+        Pay with:
+        <select id="select">
+            <option value="select">Select</option>
+            <option value="gpay">Credit/Debit Card</option>
+            <option value="ph">UPI</option>
+            <option value="gift">Gift Card</option>
+        </select>
+    </div> <br> <br>
+    <div id="aaa" style="background-color: dodgerblue; width: 50vw;
+    text-align: center; cursor: pointer; user-select: none;
+    border-radius: 20px; color: black; height: 50px; line-height: 50px;">Purchase Instructions</div> <br>
+    <div class="asd" id="pay">
+        Name on Card: <input type="text" placeholder="Name on Card"> <br>
+        Card number: <input type="number" placeholder="1234 5678 9012 3556"> <br>
+        Expiry Date: <input type="month" placeholder="MM/YY">
+        <br> CVC/CVV <input type="number" placeholder="CVC"> <br> <br>
+        <button>Purchase</button>
+    </div>
+    <div class="asd" id="upi">
+        Virtual payment Address: <input type="text"> <br> <br>
+        <button>Purchase</button>
+    </div>
+    <div class="asd" id="gift">
+        Enter Gift Card Coupon: <input type="text" placeholder="A12B3CD4F" id="cop"> <br> <br>
+        <button id="super">Purchase</button>
+
+        <div id="hide2" style="display: none; color: red;">
+            <p>Invalid Code!</p>
+        </div>
+        <div id="hide" style="display: none;">
+            <p>Purchase Successful :smiley:</p>
+            <a href="./reward.html" style="color: dodgerblue;">Redirect</a>
+        </div>
+        
+    </div>
+    <!--  -->
+    <!--  -->
+    <script>
+        document.getElementById("aaa").addEventListener("click", () => alert(`Step 1: Chose Gift Crad
+Step 2: Enter the code "X75S2GJ9B"
+Step 3: Purchase`))
+        const select = document.querySelector("#select");
+
+        select.addEventListener("change", e => {
+            let selected = e.target.value;
+            if(selected === "select"){
+                document.getElementById("pay").style.display = "none";
+                document.getElementById("upi").style.display = "none";
+                document.getElementById("gift").style.display = "none";
+            }else if(selected === "gpay"){
+                document.getElementById("pay").style.display = "block";
+                document.getElementById("upi").style.display = "none";
+                document.getElementById("gift").style.display = "none";
+            } else if(selected === "ph"){
+                document.getElementById("pay").style.display = "none";
+                document.getElementById("upi").style.display = "block";
+                document.getElementById("gift").style.display = "none";
+            }  else if(selected === "gift"){
+                document.getElementById("pay").style.display = "none";
+                document.getElementById("upi").style.display = "none";
+                document.getElementById("gift").style.display = "block";
+        }});
+
+        document.getElementById("super").addEventListener("click", e => {
+            let coupon = document.getElementById("cop").value;
+            if(coupon === "X75S2GJ9B"){
+                document.getElementById("hide").style.display = "block"
+                document.getElementById("hide2").style.display = "none"
+            } else{
+                document.getElementById("hide2").style.display = "block";
+                document.getElementById("hide").style.display = "none";
+            }
+        })
+    </script>
+</body>
+</html>
