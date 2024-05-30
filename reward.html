@@ -46,7 +46,7 @@
         const ddd = document.getElementById("ddd");
         const aaa = document.querySelector(".asdasd");
         let no = 0;
-        no = Math.floor(Math.random() * 5) + 1;
+        no = Math.floor(Math.random() * 6) + 1;
         console.log(no);
         ddd.addEventListener("click", () => {
             if(no === 1) aaa.innerHTML = "YOU GOT NOTHING LOLLLLL"
@@ -54,6 +54,7 @@
             else if(no === 3) aaa.innerHTML = "<a href='https://youtu.be/dQw4w9WgXcQ?si=v7v6bSR8nMAJGK79'>I tell you to click here</a>"
             else if(no === 4) aaa.innerHTML = "<a href='https://youtu.be/i3EFT4SZPo0?si=jh4uDV3uR9qwwV9s'>I force you to click here</a>"
             else if(no === 5) aaa.innerHTML = "omg you just won a pencil. Where is it? <br> Answer: check your pencil bag";
+            else if(no === 6) aaa.innerHTML = "<a href='goat.html'>Click here for for $100! (0% legit)</a>";
             aaa.style.display = "block";
         })
     </script>
